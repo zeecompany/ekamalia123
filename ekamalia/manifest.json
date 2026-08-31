@@ -1,0 +1,23 @@
+{
+  "name": "eKamalia — Kamalia Ka Apna Digital Bazaar",
+  "short_name": "eKamalia",
+  "description": "Pakistan's local marketplace for Kamalia — classified ads, online shops, business directory and bijli updates.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0B7A3E",
+  "background_color": "#0a1f14",
+  "icons": [
+    { "src": "/assets/img/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Browse Products", "url": "/products", "icons": [{ "src": "/assets/img/logo.png", "sizes": "192x192" }] },
+    { "name": "Post Free Ad", "url": "/ads/create", "icons": [{ "src": "/assets/img/logo.png", "sizes": "192x192" }] },
+    { "name": "Bijli Updates", "url": "/bijli", "icons": [{ "src": "/assets/img/logo.png", "sizes": "192x192" }] }
+  ]
+}

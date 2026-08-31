@@ -1,0 +1,61 @@
+/* ============ eKamalia POS styles ============ */
+.pos-body { background: #eef2ef; font-family: 'Poppins', sans-serif; }
+.pos-shell { display: flex; min-height: 100vh; }
+.pos-sidebar { width: 230px; background: #0a1f14; color: #c7d6cd; position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 1040; display: flex; flex-direction: column; transition: transform .3s; }
+.ps-brand { padding: 1.1rem 1.2rem; color: #fff; border-bottom: 1px solid #16301f; }
+.ps-brand > div:first-child { font-weight: 800; font-size: 1.15rem; }
+.ps-brand i { color: var(--ek-gold); }
+.ps-shop { font-size: .8rem; margin-top: .3rem; }
+.ps-role { font-size: .68rem; color: #7d998a; }
+.ps-nav { flex: 1; overflow-y: auto; padding: .6rem .6rem; }
+.ps-link { display: flex; align-items: center; gap: .7rem; color: #b9ccc0; padding: .55rem .8rem; border-radius: 10px; font-size: .85rem; margin-bottom: 2px; }
+.ps-link:hover { background: #12271a; color: #fff; }
+.ps-link.active { background: linear-gradient(90deg, rgba(11,122,62,.4), rgba(20,145,90,.15)); color: #fff; font-weight: 600; }
+.ps-link i { width: 18px; text-align: center; }
+.ps-footer { padding: 1rem 1.2rem; border-top: 1px solid #16301f; font-size: .8rem; }
+.ps-footer a { color: #9db5a7; }
+.pos-main { flex: 1; margin-inline-start: 230px; min-width: 0; display: flex; flex-direction: column; }
+.pos-topbar { background: #fff; padding: .55rem 1rem; border-bottom: 1px solid #e4ebe7; display: flex; align-items: center; gap: .8rem; position: sticky; top: 0; z-index: 1030; }
+.pos-content { flex: 1; padding: 1rem; }
+@media (max-width: 991.98px) {
+  .pos-sidebar { transform: translateX(-105%); }
+  .pos-sidebar.open { transform: translateX(0); }
+  .pos-main { margin-inline-start: 0; }
+}
+
+/* POS terminal grid */
+.pos-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1rem; align-items: start; }
+@media (max-width: 1199.98px) { .pos-grid { grid-template-columns: 1fr; } }
+.pos-products { background: #fff; border-radius: 16px; border: 1px solid #e4ebe7; padding: 1rem; }
+.pos-cart { background: #fff; border-radius: 16px; border: 1px solid #e4ebe7; position: sticky; top: 70px; display: flex; flex-direction: column; max-height: calc(100vh - 100px); }
+.prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: .7rem; max-height: calc(100vh - 260px); overflow-y: auto; padding: 2px; }
+.prod-tile { border: 1.5px solid #e4ebe7; border-radius: 12px; overflow: hidden; cursor: pointer; transition: .15s; background: #fff; text-align: center; }
+.prod-tile:hover { border-color: var(--ek-green); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(11,122,62,.12); }
+.prod-tile.out { opacity: .45; cursor: not-allowed; }
+.prod-tile img { width: 100%; aspect-ratio: 1; object-fit: cover; background: #f2f6f3; }
+.prod-tile .n { font-size: .72rem; font-weight: 600; padding: .3rem .4rem 0; height: 2.2em; overflow: hidden; }
+.prod-tile .p { font-size: .74rem; color: var(--ek-green-dark); font-weight: 700; padding: 0 .4rem .4rem; }
+.prod-tile .s { font-size: .62rem; color: #7b8a83; }
+.cart-lines { flex: 1; overflow-y: auto; min-height: 120px; }
+.cart-line { display: flex; gap: .6rem; align-items: center; padding: .5rem .8rem; border-bottom: 1px dashed #e4ebe7; }
+.cart-line img { width: 42px; height: 42px; border-radius: 8px; object-fit: cover; background: #f2f6f3; }
+.cart-line .qty-btn { width: 24px; height: 24px; border-radius: 7px; border: 1px solid #e4ebe7; background: #fff; font-size: .72rem; }
+.cart-line .qty-btn:hover { background: var(--ek-green); color: #fff; }
+.pos-pay-btn { background: linear-gradient(90deg,#0B7A3E,#14915a); color: #fff; border: 0; border-radius: 12px; padding: .8rem; font-weight: 700; width: 100%; font-size: 1rem; }
+.pos-pay-btn:hover { color: #fff; filter: brightness(1.07); }
+.pos-sec-btn { border: 1.5px solid #e4ebe7; background: #fff; border-radius: 10px; padding: .45rem; font-size: .78rem; font-weight: 600; flex: 1; }
+.pos-sec-btn:hover { border-color: var(--ek-green); color: var(--ek-green); }
+
+/* thermal print */
+@media print {
+  body * { visibility: hidden; }
+  #printArea, #printArea * { visibility: visible; }
+  #printArea { position: absolute; inset-inline-start: 0; top: 0; width: 100%; }
+  .no-print { display: none !important; }
+}
+.receipt { font-family: 'Courier New', monospace; font-size: 12px; max-width: 300px; margin: auto; }
+.receipt table { width: 100%; }
+.receipt.a4 { font-family: 'Segoe UI', sans-serif; font-size: 13px; max-width: 720px; }
+.receipt .r-center { text-align: center; }
+.receipt .r-bold { font-weight: 700; }
+.receipt hr { border-top: 1px dashed #333; }

@@ -1,0 +1,50 @@
+/* ============ eKamalia Admin Panel styles ============ */
+.admin-body { background: #f0f4f1; font-family: 'Poppins', sans-serif; }
+.admin-shell { display: flex; min-height: 100vh; }
+.admin-sidebar { width: 262px; background: #0a1f14; color: #c7d6cd; position: fixed; inset-block: 0; inset-inline-start: 0; z-index: 1040; display: flex; flex-direction: column; transition: transform .3s; }
+.as-brand { padding: 1.15rem 1.3rem; font-weight: 800; color: #fff; font-size: 1.2rem; border-bottom: 1px solid #16301f; }
+.as-brand i { color: var(--ek-gold); }
+.as-admin { background: var(--ek-gold); color: #3d2c00; font-size: .6rem; padding: .18rem .5rem; border-radius: 6px; vertical-align: middle; margin-inline-start: .35rem; }
+.as-nav { flex: 1; overflow-y: auto; padding: .6rem .7rem; }
+.as-nav::-webkit-scrollbar { width: 6px; } .as-nav::-webkit-scrollbar-thumb { background: #1d3328; }
+.as-section { font-size: .64rem; text-transform: uppercase; letter-spacing: .8px; color: #5f7a6a; padding: 1rem .6rem .35rem; font-weight: 700; }
+.as-link { display: flex; align-items: center; gap: .7rem; color: #b9ccc0; padding: .52rem .7rem; border-radius: 10px; font-size: .84rem; margin-bottom: 2px; transition: .15s; position: relative; }
+.as-link:hover { background: #12271a; color: #fff; }
+.as-link.active { background: linear-gradient(90deg, rgba(11,122,62,.35), rgba(20,145,90,.15)); color: #fff; font-weight: 600; }
+.as-link.active::before { content: ''; position: absolute; inset-inline-start: -7px; top: 8px; bottom: 8px; width: 4px; border-radius: 4px; background: var(--ek-gold); }
+.as-link i { width: 18px; text-align: center; }
+.as-badge { margin-inline-start: auto; background: var(--ek-red); color: #fff; font-size: .62rem; font-weight: 700; border-radius: 999px; min-width: 19px; height: 19px; display: inline-flex; align-items: center; justify-content: center; padding: 0 5px; }
+.as-footer { padding: 1rem 1.3rem; border-top: 1px solid #16301f; font-size: .82rem; }
+.as-footer a { color: #9db5a7; }
+.as-footer a:hover { color: #fff; }
+.admin-main { flex: 1; margin-inline-start: 262px; display: flex; flex-direction: column; min-width: 0; }
+.admin-topbar { background: #fff; padding: .6rem 1.2rem; border-bottom: 1px solid #e4ebe7; display: flex; align-items: center; gap: 1rem; position: sticky; top: 0; z-index: 1030; }
+.admin-content { flex: 1; }
+@media (max-width: 991.98px) {
+  .admin-sidebar { transform: translateX(-105%); }
+  [dir="rtl"] .admin-sidebar { transform: translateX(105%); }
+  .admin-sidebar.open { transform: translateX(0); }
+  .admin-main { margin-inline-start: 0; }
+}
+
+/* KPI cards */
+.kpi-card { background: #fff; border-radius: 16px; padding: 1.1rem 1.2rem; border: 1px solid #e4ebe7; display: flex; align-items: center; gap: 1rem; transition: .2s; }
+.kpi-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(16,35,26,.09); }
+.kpi-card .ic { width: 52px; height: 52px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+.kpi-card .val { font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
+.kpi-card .lbl { font-size: .74rem; color: #63756c; font-weight: 600; }
+.ic-green { background: #e7f4ec; color: #0B7A3E; } .ic-gold { background: #fdf3d7; color: #b57f0a; }
+.ic-blue { background: #e7eefc; color: #2456c4; } .ic-red { background: #fdeaea; color: #c0392b; }
+.ic-purple { background: #f1e9fd; color: #7c3aed; } .ic-teal { background: #e2f7f7; color: #0891b2; }
+
+.admin-card { background: #fff; border-radius: 16px; border: 1px solid #e4ebe7; }
+.admin-card .ac-head { padding: 1rem 1.2rem; border-bottom: 1px solid #eef2ef; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.admin-card .ac-head h6 { margin: 0; font-weight: 700; }
+.admin-card .ac-body { padding: 1.2rem; }
+.table > :not(caption) > * > * { padding: .7rem .8rem; }
+.form-label { font-size: .8rem; font-weight: 600; color: #4d5f56; }
+.btn-ek { background: linear-gradient(90deg,#0B7A3E,#14915a); color: #fff; border: 0; border-radius: 12px; padding: .55rem 1.3rem; font-weight: 600; }
+.btn-ek:hover { color: #fff; filter: brightness(1.07); }
+.btn-ek-sm { background: linear-gradient(90deg,#0B7A3E,#14915a); color: #fff; border: 0; border-radius: 10px; padding: .3rem .8rem; font-weight: 600; font-size: .78rem; }
+.btn-ek-sm:hover { color: #fff; filter: brightness(1.07); }
+.chip-actions .btn { margin: 2px; }

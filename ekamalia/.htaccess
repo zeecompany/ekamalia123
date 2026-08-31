@@ -1,0 +1,38 @@
+# eKamalia — Apache config (shared-hosting ready)
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (uncomment on production with SSL)
+  # RewriteCond %{HTTPS} !=on
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Protect sensitive paths
+  RewriteRule ^(app|config|database|storage|resources|routes)(/|$) - [F,L]
+
+  # Block PHP execution anywhere user files are uploaded
+  RewriteRule ^uploads/.+\.(php|phtml|php3|php4|php5|php7|pht|phar|pl|py|cgi|sh)$ - [F,L]
+
+  # Installer first
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^install(/.*)?$ install/index.php [L]
+
+  # sitemap.xml generated dynamically (falls through to front controller route)
+  RewriteRule ^sitemap\.xml$ index.php [QSA,L]
+
+  # Everything else to the front controller
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+AddType application/vnd.ms-fontobject .eot
+AddType font/woff2 .woff2
